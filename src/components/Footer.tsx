@@ -45,8 +45,18 @@ export default function Footer() {
       </div>
 
       <div className="max-w-7xl mx-auto mt-12 pt-6 border-t border-border flex flex-wrap justify-between gap-3 text-xs text-muted-foreground">
-        <span>© 2025 Housent UK. All rights reserved.</span>
-        <span>Regulated by RICS</span>
+        <span>
+          © 2026 All Rights Reserved | Powered by{" "}
+          <a
+            href="https://axistechgroup.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-accent transition-colors"
+          >
+            Axistech Group
+          </a>
+        </span>
+        
       </div>
     </footer>
   );

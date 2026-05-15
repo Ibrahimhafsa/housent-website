@@ -12,7 +12,7 @@ const points = [
 export default function Excellence() {
   const [open, setOpen] = useState(0);
   return (
-    <section id="about" className="px-6 lg:px-10 py-24 lg:py-32">
+    <section id="excellence" className="px-6 lg:px-10 py-24 lg:py-32">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -36,7 +36,7 @@ export default function Excellence() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="aspect-[4/5] rounded-2xl overflow-hidden"
+            className="aspect-[3/4] lg:aspect-auto lg:h-[560px] rounded-2xl overflow-hidden shadow-sm"
           >
             <img
               src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&q=80"

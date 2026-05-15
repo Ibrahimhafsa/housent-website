@@ -30,7 +30,7 @@ const listings = [
     loc: "London W8",
   },
   {
-    img: "https://images.unsplash.com/photo-1518883809872-ec5fa45fdd9f?w=900&q=80",
+    img: "https://plus.unsplash.com/premium_photo-1689609950112-d66095626efb?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aG91c2V8ZW58MHx8MHx8fDA%3D",
     badge: "New",
     badgeColor: "bg-emerald-600 text-white",
     title: "Cotswolds Retreat",
@@ -58,7 +58,7 @@ export default function Listings() {
             </h2>
           </div>
           <a href="#" className="text-sm text-foreground hover:text-accent transition-colors">
-            View All Properties →
+            
           </a>
         </motion.div>
 

@@ -1,20 +1,25 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
+import { Link } from "@tanstack/react-router";
+
 const posts = [
   {
+    id: "uk-property-prices",
     img: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=900&q=80",
     date: "11 April 2024",
     title: "UK Property Prices: What Buyers Should Expect in 2024",
     tag: "Market Report",
   },
   {
+    id: "first-time-buyer-guide",
     img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=900&q=80",
     date: "14 October 2023",
     title: "First-Time Buyer Guide: Navigating Stamp Duty Relief",
     tag: "Buyer Guide",
   },
   {
+    id: "buy-to-let-investments",
     img: "https://images.unsplash.com/photo-1502672023488-70e25813eb80?w=900&q=80",
     date: "25 November 2022",
     title: "Buy-to-Let Investments: Is It Still Worth It in the UK?",
@@ -57,9 +62,13 @@ export default function BlogSection() {
                 <span className="text-xs text-muted-foreground">{p.date}</span>
               </div>
               <h3 className="font-serif text-2xl text-foreground group-hover:text-accent transition-colors">{p.title}</h3>
-              <a className="mt-4 inline-flex items-center gap-1.5 text-sm text-foreground">
+              <Link
+                to="/insights/$articleId"
+                params={{ articleId: p.id }}
+                className="mt-4 inline-flex items-center gap-1.5 text-sm text-foreground hover:text-accent transition-colors"
+              >
                 Read Article <ArrowUpRight className="w-4 h-4" />
-              </a>
+              </Link>
             </motion.article>
           ))}
         </div>

@@ -1,20 +1,25 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Building2, Home, KeyRound } from "lucide-react";
 
+import { Link } from "@tanstack/react-router";
+
 const services = [
   {
+    id: "buy-and-sell",
     icon: Home,
     title: "Buy and Sell",
     desc: "From first-time buyers to seasoned investors, we handle every transaction with care and precision.",
     tags: ["Valuations", "Legal Support", "Market Reports"],
   },
   {
+    id: "rental-management",
     icon: KeyRound,
     title: "Rental Management",
     desc: "We manage your rental portfolio so you do not have to. Full tenant vetting, maintenance coordination and rent collection.",
     tags: ["Tenant Vetting", "Rent Collection", "Repairs"],
   },
   {
+    id: "property-management",
     icon: Building2,
     title: "Property Management",
     desc: "Let us handle the day-to-day so your investment continues to grow without the hassle.",
@@ -83,9 +88,13 @@ export default function PropertySolutions() {
                         </span>
                       ))}
                     </div>
-                    <a href="#" className="mt-5 inline-flex items-center gap-1.5 text-sm text-foreground hover:text-accent transition-colors">
+                    <Link
+                      to="/solutions/$solutionId"
+                      params={{ solutionId: s.id }}
+                      className="mt-5 inline-flex items-center gap-1.5 text-sm text-foreground hover:text-accent transition-colors"
+                    >
                       Learn More <ArrowUpRight className="w-4 h-4" />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </motion.div>

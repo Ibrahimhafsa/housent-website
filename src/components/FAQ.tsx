@@ -38,7 +38,7 @@ export default function FAQ() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="aspect-[4/5] rounded-2xl overflow-hidden"
+            className="aspect-[3/4] lg:aspect-auto lg:h-[540px] rounded-2xl overflow-hidden"
           >
             <img
               src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80"

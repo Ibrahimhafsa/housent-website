@@ -2,12 +2,23 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ArrowUpRight } from "lucide-react";
 
+import { Link } from "@tanstack/react-router";
+
 const headline = ["Find Your Future", "Home with Absolute", "Confidence"];
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], [0, 80]);
+
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const el = document.getElementById(id);
+    if (el) {
+      const top = el.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
+  };
 
   return (
     <section ref={ref} id="top" className="pt-32 pb-20 lg:pt-40 lg:pb-28 px-6 lg:px-10">
@@ -61,13 +72,23 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.75 }}
             className="mt-10 flex flex-wrap items-center gap-4"
           >
-            <a href="#listings" className="group inline-flex items-center gap-2 px-7 py-4 bg-ink text-cream rounded-full text-sm hover:bg-accent transition-colors">
+            <Link
+              to="/"
+              hash="listings"
+              onClick={(e) => handleScroll(e, "listings")}
+              className="group inline-flex items-center gap-2 px-7 py-4 bg-ink text-cream rounded-full text-sm hover:bg-accent transition-colors"
+            >
               Explore Properties
               <ArrowUpRight className="w-4 h-4 group-hover:rotate-45 transition-transform" />
-            </a>
-            <a href="#excellence" className="px-7 py-4 border border-foreground/20 text-foreground rounded-full text-sm hover:border-foreground transition">
+            </Link>
+            <Link
+              to="/"
+              hash="excellence"
+              onClick={(e) => handleScroll(e, "excellence")}
+              className="px-7 py-4 border border-foreground/20 text-foreground rounded-full text-sm hover:border-foreground transition"
+            >
               How It Works
-            </a>
+            </Link>
           </motion.div>
 
           <motion.div
