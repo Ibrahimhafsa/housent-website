@@ -46,7 +46,7 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto mt-12 pt-6 border-t border-border flex flex-wrap justify-between gap-3 text-xs text-muted-foreground">
         <span>
-          © 2026 All Rights Reserved | Powered by{" "}
+           Powered by{" "}
           <a
             href="https://axistechgroup.com/"
             target="_blank"

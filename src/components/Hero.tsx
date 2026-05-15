@@ -97,7 +97,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.95 }}
             className="mt-10 flex items-center gap-3"
           >
-            <div className="flex -space-x-2">
+            {/* <div className="flex -space-x-2">
               {[
                 "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80",
                 "https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=80",
@@ -105,8 +105,8 @@ export default function Hero() {
               ].map((src) => (
                 <img key={src} src={src} className="w-8 h-8 rounded-full border-2 border-cream object-cover" alt="" />
               ))}
-            </div>
-            <span className="text-sm text-muted-foreground">Trusted by 10,000+ UK families</span>
+            </div> */}
+            {/* <span className="text-sm text-muted-foreground">Trusted by 10,000+ UK families</span> */}
           </motion.div>
         </div>
 

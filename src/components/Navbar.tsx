@@ -8,7 +8,7 @@ const links = [
   { label: "Home", href: "/", hash: "top" },
   { label: "Pages", href: "/", hash: "pages" },
   { label: "Properties", href: "/", hash: "listings" },
-  { label: "About Us", href: "/", hash: "about" },
+  { label: "About Us", href: "/", hash: "excellence" },
 ];
 
 export default function Navbar() {
@@ -76,7 +76,7 @@ export default function Navbar() {
 
         <div className="hidden md:flex items-center gap-3">
           <button className="p-2 rounded-full hover:bg-muted transition" aria-label="Search">
-            <Search className="w-4 h-4" />
+            {/* <Search className="w-4 h-4" /> */}
           </button>
           <Link
             to="/"
