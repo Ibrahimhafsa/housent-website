@@ -24,7 +24,7 @@ const posts = [
 
 export default function BlogSection() {
   return (
-    <section className="px-6 lg:px-10 py-24 lg:py-32">
+    <section id="pages" className="px-6 lg:px-10 py-24 lg:py-32">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

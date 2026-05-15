@@ -2,7 +2,12 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, Search, X } from "lucide-react";
 
-const links = ["Homes", "Pages", "Properties", "About Us"];
+const links = [
+  { label: "Home", href: "#top" },
+  { label: "Pages", href: "#pages" },
+  { label: "Properties", href: "#listings" },
+  { label: "About Us", href: "#about" },
+];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -15,6 +20,20 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const handleNav = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setOpen(false);
+    const id = href.replace("#", "");
+    const el = document.getElementById(id);
+    if (el) {
+      const top = el.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top, behavior: "smooth" });
+      history.replaceState(null, "", href);
+    } else if (id === "top") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
     <motion.header
       initial={{ y: -30, opacity: 0 }}
@@ -25,15 +44,20 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
-        <a href="#top" className="flex items-end gap-1">
+        <a href="#top" onClick={(e) => handleNav(e, "#top")} className="flex items-end gap-1">
           <span className="font-serif text-2xl tracking-tight text-foreground">Housent</span>
           <span className="w-1.5 h-1.5 rounded-full bg-accent mb-2" />
         </a>
 
         <nav className="hidden md:flex items-center gap-9">
           {links.map((l) => (
-            <a key={l} href="#" className="text-sm text-foreground/80 hover:text-accent transition-colors">
-              {l}
+            <a
+              key={l.label}
+              href={l.href}
+              onClick={(e) => handleNav(e, l.href)}
+              className="text-sm text-foreground/80 hover:text-accent transition-colors"
+            >
+              {l.label}
             </a>
           ))}
         </nav>
@@ -44,6 +68,7 @@ export default function Navbar() {
           </button>
           <a
             href="#contact"
+            onClick={(e) => handleNav(e, "#contact")}
             className="px-5 py-2.5 rounded-full bg-ink text-cream text-sm hover:bg-accent transition-colors"
           >
             Contact Us
@@ -65,9 +90,20 @@ export default function Navbar() {
           >
             <div className="px-6 py-6 flex flex-col gap-4">
               {links.map((l) => (
-                <a key={l} href="#" className="text-base text-foreground/80">{l}</a>
+                <a
+                  key={l.label}
+                  href={l.href}
+                  onClick={(e) => handleNav(e, l.href)}
+                  className="text-base text-foreground/80"
+                >
+                  {l.label}
+                </a>
               ))}
-              <a href="#contact" className="mt-2 px-5 py-3 rounded-full bg-ink text-cream text-sm text-center">
+              <a
+                href="#contact"
+                onClick={(e) => handleNav(e, "#contact")}
+                className="mt-2 px-5 py-3 rounded-full bg-ink text-cream text-sm text-center"
+              >
                 Contact Us
               </a>
             </div>
